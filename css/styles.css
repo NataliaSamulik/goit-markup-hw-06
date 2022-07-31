@@ -13,6 +13,7 @@
   --icons-color: #afb1b8;
   --services-color: rgba(47, 48, 58, 0.8);
   --portfolio-overlay: rgba(33, 150, 243, 0.9);
+  --form-input: rgba(33, 33, 33, 0.2);
 
   /* Змінна для transition */
 
@@ -234,7 +235,7 @@ p {
   line-height: 1.88;
   letter-spacing: 0.06em;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms var(--transition-cubik);
 }
 
 .hero-button:hover,
@@ -268,6 +269,8 @@ p {
 }
 
 .modal {
+  padding: 40px;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -281,7 +284,7 @@ p {
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
 
-    transition: transform 250ms var(--transition-cubik);
+  transition: transform 250ms var(--transition-cubik);
 }
 
 .backdrop.is-hidden .modal {
@@ -304,8 +307,179 @@ p {
   background-color: var(--white);
   border-radius: 50%;
   cursor: pointer;
+
+  transition: fill 250ms var(--transition-cubik);
 }
 
+.close-modal:hover,
+.close-modal:focus {
+  fill: var(--accent-text-color);
+}
+
+/* Стилізація форми */
+
+.form-modal-title {
+  display: block;
+  margin-bottom: 12px;
+
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.register-form-group {
+  margin-bottom: 20px;
+}
+
+.form-modal-label {
+  display: block;
+  margin-bottom: 4px;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+
+  color: var(--text-color);
+}
+
+.form-modal-input,
+.form-modal-textarea {
+  padding: 12px;
+  padding-left: 42px;
+
+  width: 100%;
+  height: 40px;
+
+  border: 1px solid var(--form-input);
+  border-radius: 4px;
+
+  outline: transparent;
+
+  transition: border-color 250ms var(--transition-cubik);
+}
+
+.form-modal-textarea {
+  height: 120px;
+  resize: none;
+
+  padding: 12px 16px;
+}
+
+.form-modal-textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+
+  transition: border-color 250ms var(--transition-cubik);
+}
+
+.form-modal-group {
+  position: relative;
+  display: block;
+
+  margin-bottom: 10px;
+}
+
+.form-modal-group:last-child {
+  margin-bottom: 0;
+}
+
+.form-modal-icon {
+  position: absolute;
+  display: block;
+
+  fill: var(--text-color-main);
+
+  bottom: 11px;
+  left: 12px;
+
+  transition: fill 250ms var(--transition-cubik);
+}
+
+.form-modal-input:hover,
+.form-modal-input:focus,
+.form-modal-textarea:focus,
+.form-modal-textarea:hover {
+  border-color: var(--accent-text-color);
+}
+
+.form-modal-input:hover + .form-modal-icon,
+.form-modal-input:focus + .form-modal-icon {
+  fill: var(--accent-text-color);
+}
+
+.form-modal-checkbox {
+  appearance: none;
+}
+
+.form-modal-checkbox:checked + .form-modal-icon-agreement .form-modal-icon-agreement-uncheck {
+  opacity: 0;
+  transition: opacity 250ms var(--transition-cubik);
+}
+
+.form-modal-checkbox:checked + .form-modal-icon-agreement .form-modal-icon-agreement-check {
+  opacity: 1;
+}
+
+.form-modal-icon-agreement-check {
+  opacity: 0;
+  transition: opacity 250ms var(--transition-cubik);
+}
+
+.modal-checkbox-agreement {
+  display: block;
+  user-select: none;
+}
+
+.form-modal-group-agreement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  margin-bottom: 30px;
+}
+
+.modal-checkbox-agreement {
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 400;
+  text-align: left;
+
+  color: var(--text-color);
+}
+
+.form-agreement-link {
+  color: var(--accent-text-color);
+
+  text-underline-position: under;
+}
+
+.modal-button-submit {
+  padding: 10px 52px;
+
+  border-radius: 4px;
+  background-color: var(--accent-text-color);
+  border: none;
+  color: var(--white);
+
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+
+  cursor: pointer;
+
+  transition: background-color 250ms var(--transition-cubik);
+}
+
+.modal-button-submit:hover,
+.modal-button-submit:focus {
+  background-color: var(--button-hover);
+}
 /* Наші переваги */
 
 .benefits-recktangl {
@@ -457,8 +631,7 @@ img {
 
   color: var(--icons-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms var(--transition-cubik), background-color 250ms var(--transition-cubik);
 }
 
 .team-social-link:hover,
@@ -601,6 +774,58 @@ img {
   align-items: baseline;
 }
 
+/* Footer-form */
+
+.container-footer {
+  margin-left: auto;
+}
+
+.footer-form {
+  display: flex;
+}
+
+.footer-form-input {
+  padding: 15px 16px;
+  min-width: 358px;
+  height: 50px;
+
+  margin-right: 12px;
+
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  color: var(--white);
+}
+
+.footer-form-input::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+
+  color: var(--address-color);
+}
+
+.footer-form-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 200px;
+  height: 50px;
+  padding: 13px 28px;
+
+  font-size: 16px;
+  line-height: 1.88;
+  cursor: pointer;
+
+  border: none;
+  border-radius: 4px;
+
+  background-color: var(--accent-text-color);
+  color: var(--white);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
 /* Сторінка портфоліо */
 /* Кнопки-фільтр */
 
@@ -692,7 +917,6 @@ img {
 
   border: 1px solid var(--border-portfolio);
   border-top: none;
-
 }
 
 .portfolio-box {
@@ -700,9 +924,7 @@ img {
   overflow: hidden;
 }
 
-
 .overlay {
-
   display: block;
   position: absolute;
 

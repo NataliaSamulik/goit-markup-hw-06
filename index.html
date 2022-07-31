@@ -71,18 +71,70 @@
       <section class="hero">
         <div class="container">
           <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-          <button class="hero-button" type="button" data-modal-open>
-          Замовити послугу
-          </button>
+          <button class="hero-button" type="button" data-modal-open>Замовити послугу</button>
         </div>
 
         <div class="backdrop is-hidden" data-modal>
           <div class="modal">
-             <button class="close-modal" type="button" data-modal-close>
+            <button class="close-modal" type="button" data-modal-close>
               <svg class="modal-icon" width="18" height="18">
                 <use href="./image/icons.svg#close"></use>
               </svg>
-             </button>
+            </button>
+            <form class="form-modal">
+              <strong class="form-modal-title">Залиште свої дані, ми вам передзвонимо</strong>
+              <div class="register-form-group">
+                <label class="form-modal-group">
+                  <span class="form-modal-label">Ім'я</span>
+                  <input class="form-modal-input" type="text" name="user-name" />
+                  <svg class="form-modal-icon" width="18" height="18">
+                    <use href="./image/icons.svg#person"></use>
+                  </svg>
+                </label>
+
+                <label class="form-modal-group">
+                  <span class="form-modal-label">Телефон</span>
+                  <input class="form-modal-input" type="tel" name="user-tel" />
+                  <svg class="form-modal-icon" width="18" height="18">
+                    <use href="./image/icons.svg#phone-black"></use>
+                  </svg>
+                </label>
+
+                <label class="form-modal-group">
+                  <span class="form-modal-label">Пошта</span>
+                  <input class="form-modal-input" type="email" name="user-email" />
+                  <svg class="form-modal-icon" width="18" height="18">
+                    <use href="./image/icons.svg#email"></use>
+                  </svg>
+                </label>
+
+                <label class="form-modal-group">
+                  <span class="form-modal-label">Коментар</span>
+                  <textarea
+                    class="form-modal-textarea"
+                    placeholder="Введіть текст"
+                    name="comment"
+                  ></textarea>
+                </label>
+              </div>
+
+              <label class="form-modal-group-agreement">
+                <input class="form-modal-checkbox" type="checkbox" name="agreement" />
+                <svg class="form-modal-icon-agreement" width="16" height="15">
+                  <use class="form-modal-icon-agreement-check" href="./image/icons.svg#check"></use>
+                  <use
+                    class="form-modal-icon-agreement-uncheck"
+                    href="./image/icons.svg#vector"
+                  ></use>
+                </svg>
+                <span class="modal-checkbox-agreement"
+                  >Погоджуюся з розсилкою та приймаю
+                  <a class="form-agreement-link" href="">Умови договору</a></span
+                >
+              </label>
+
+              <button class="modal-button-submit" type="submit">Відправити</button>
+            </form>
           </div>
         </div>
       </section>
@@ -529,6 +581,28 @@
               </a>
             </li>
           </ul>
+        </div>
+        <div class="container-footer">
+          <h2 class="footer-title">Підпишіться на розсилку</h2>
+          <div class="footer-form-group">
+            <form class="footer-form">
+              <label class="footer-form-label">
+                <input
+                  class="footer-form-input"
+                  type="email"
+                  placeholder="E-mail"
+                  name="user-email"
+                />
+              </label>
+
+              <button class="footer-form-button" type="submit">
+                Підписатися
+                <svg class="footer-form-icon" width="24" height="24">
+                  <use href="./image/icons.svg#send"></use>
+                </svg>
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </footer>
